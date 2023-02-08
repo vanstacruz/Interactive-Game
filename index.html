@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #game-container {
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        position: relative;
+      }
+      .player-ship {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(226, 158, 113);
+        transform: translate(-50%, 0);
+      }
+    </style>
+  </head>
+  <body onload="startGame()">
+    <div id="game-container">
+      <div class="player-ship" id="player-ship"></div>
+    </div>
+    <script>
+      const playerShip = document.getElementById("player-ship");
+      let playerShipX = 200;
+
+      function startGame() {
+        document.addEventListener("keydown", function(event) {
+          if (event.key === "ArrowLeft") {
+            playerShipX -= 10;
+          } else if (event.key === "ArrowRight") {
+            playerShipX += 10;
+          }
+          playerShip.style.left = playerShipX + "px";
+        });
+      }
+    </script>
+  </body>
+</html>
